@@ -11,7 +11,7 @@ import com.example.android.inventoryapp.data.InventoryContract.InventoryEntry;
  */
 public class InventoryDbHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "inventory.db";
+    public static final String DATABASE_NAME = "store.db";
     /**
      * Database version. If you change the database schema, you must increment the database version.
      */
