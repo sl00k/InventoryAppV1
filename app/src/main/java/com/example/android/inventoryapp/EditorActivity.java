@@ -45,9 +45,11 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     private Button mMakeCall;
 
     /**
-     * Content uro for the existing item(in the table) (null if its a new item)
+     * Content uri for the existing item(in the table) (null if its a new item)
      */
     private Uri mCurrentInventoryUri;
+
+
     /**
      * Boolean flag that keeps track of whether the table has been edited (true) or not (false)
      */
@@ -82,7 +84,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             }
             ContentValues values = new ContentValues();
             values.put(InventoryContract.InventoryEntry.COLUMN_PRODUCT_QUANTITY, newQuantity);
-            mQuantityEditText.setText(String.valueOf(quantity));
+            mQuantityEditText.setText(String.valueOf(newQuantity));
         }
     };
 
@@ -137,6 +139,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 Toast.makeText(this, "DB updated", Toast.LENGTH_SHORT).show();
             }
         }
+        finish();
     }
 
     private void deleteItem() {
@@ -182,7 +185,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         switch (item.getItemId()) {
             case R.id.action_save:
                 saveItem();
-                finish();
+
                 return true;
             case R.id.action_delete:
                 showDeleteConfirmationDialog();
@@ -308,7 +311,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mSupplierEditText.setOnTouchListener(mTouchListener);
         mPhoneEditText.setOnTouchListener(mTouchListener);
 
-
+        // Set standard quantity of 0
+        mQuantityEditText.setText("0");
         // buttons to change quantity or make a call
 
         mIncreaseButton = findViewById(R.id.increase_quantity);

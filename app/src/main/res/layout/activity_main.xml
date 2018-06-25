@@ -37,6 +37,6 @@
         android:layout_alignParentRight="true"
         android:layout_margin="16dp"
         android:background="@color/colorPrimary"
-        android:src="@drawable/clipboard_plus" />
+        android:src="@drawable/ic_add" />
 
 </RelativeLayout>
